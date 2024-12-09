@@ -378,4 +378,11 @@ require("lazy").setup({
 			vim.g.vim_markdown_auto_insert_bullets = 0
 		end
 	},
+	{
+		'MeanderingProgrammer/render-markdown.nvim',
+		dependencies = { 
+			'nvim-treesitter/nvim-treesitter', 
+			'echasnovski/mini.nvim' 
+		}, -- if you use the mini.nvim suite
+	}
 })
