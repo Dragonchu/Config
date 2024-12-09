@@ -131,6 +131,8 @@ require("lazy").setup({
 		end
 	},
 	-- fzf support for ^p
+	-- need to install fd, proximity-sort, fzf on mac
+	-- can use brew to install fd and fzf, use cargo install proximity-sort
 	{
 		'junegunn/fzf.vim',
 		dependencies = {
