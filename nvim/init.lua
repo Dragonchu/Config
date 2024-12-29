@@ -20,6 +20,9 @@ vim.keymap.set('n', '<leader>w', '<cmd>w<cr>')
 vim.keymap.set('n', '<leader><leader>', '<c-^>')
 -- open new file adjacent to current file
 vim.keymap.set('n', '<leader>o', ':e <C-R>=expand("%:p:h") . "/" <cr>')
+-- make j and k move by visual line, not actual line, when text is soft-wrapped
+vim.keymap.set('n', 'j', 'gj')
+vim.keymap.set('n', 'k', 'gk')
 
 -------------------------------------------------------------------------------
 --
