@@ -1,0 +1,22 @@
+let mapleader = " "
+
+set surround
+set easymotion
+
+set number
+set clipboard=unnamed
+nmap <C-p> <Action>(FindInPath)
+nmap <leader>w :w<CR>
+nmap <leader><leader> <C-^>
+map <leader>d <Action>(Debug)
+map <leader>r <Action>(RenameElement)
+map <leader>b <Action>(ToggleLineBreakpoint)
+map <leader>z <Action>(ToggleDistractionFreeMode)
+map <leader>o <Action>(FileStructurePopup)
+
+map <leader>f <Plug>(easymotion-s)
+map <leader>e <Plug>(easymotion-f)
+
+nmap j gj
+nmap k gk
+
