@@ -24,6 +24,9 @@ vim.keymap.set('n', '<leader>o', ':e <C-R>=expand("%:p:h") . "/" <cr>')
 -- make j and k move by visual line, not actual line, when text is soft-wrapped
 vim.keymap.set('n', 'j', 'gj')
 vim.keymap.set('n', 'k', 'gk')
+-- easy-motion
+vim.keymap.set('n', '<leader>f', '<Plug>(easymotion-s)', { noremap = true, silent = true })
+vim.keymap.set('n', '<leader>e', '<Plug>(easymotion-f)', { noremap = true, silent = true })
 
 -------------------------------------------------------------------------------
 --
@@ -388,5 +391,8 @@ require("lazy").setup({
 			'nvim-treesitter/nvim-treesitter', 
 			'echasnovski/mini.nvim' 
 		}, -- if you use the mini.nvim suite
+	},
+	{
+		'easymotion/vim-easymotion'
 	}
 })
