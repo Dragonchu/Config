@@ -216,6 +216,21 @@ require("lazy").setup({
 				},
 			}
 
+			-- CMake LSP
+			lspconfig.cmake.setup {
+				cmd = { "cmake-language-server" },
+				filetypes = { "cmake" },
+				root_dir = function(fname)
+					return lspconfig.util.root_pattern(
+					"CMakeLists.txt",
+					".git"
+					)(fname) or vim.fn.getcwd()
+				end,
+				init_options = {
+					buildDirectory = "build",
+				},
+			}
+
 			-- Bash LSP
 			local configs = require 'lspconfig.configs'
 			if not configs.bash_lsp and vim.fn.executable('bash-language-server') == 1 then
