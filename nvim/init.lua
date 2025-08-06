@@ -36,17 +36,17 @@ vim.keymap.set('n', '<leader>e', '<Plug>(easymotion-f)', { noremap = true, silen
 -- Bootstrap lazy.nvim
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not (vim.uv or vim.loop).fs_stat(lazypath) then
-  local lazyrepo = "https://github.com/folke/lazy.nvim.git"
-  local out = vim.fn.system({ "git", "clone", "--filter=blob:none", "--branch=stable", lazyrepo, lazypath })
-  if vim.v.shell_error ~= 0 then
-    vim.api.nvim_echo({
-      { "Failed to clone lazy.nvim:\n", "ErrorMsg" },
-      { out, "WarningMsg" },
-      { "\nPress any key to exit..." },
-    }, true, {})
-    vim.fn.getchar()
-    os.exit(1)
-  end
+	local lazyrepo = "https://github.com/folke/lazy.nvim.git"
+	local out = vim.fn.system({ "git", "clone", "--filter=blob:none", "--branch=stable", lazyrepo, lazypath })
+	if vim.v.shell_error ~= 0 then
+		vim.api.nvim_echo({
+			{ "Failed to clone lazy.nvim:\n", "ErrorMsg" },
+			{ out, "WarningMsg" },
+			{ "\nPress any key to exit..." },
+		}, true, {})
+		vim.fn.getchar()
+		os.exit(1)
+	end
 end
 vim.opt.rtp:prepend(lazypath)
 
@@ -106,12 +106,12 @@ require("lazy").setup({
 			end
 			-- https://github.com/itchyny/lightline.vim/issues/657
 			vim.api.nvim_exec(
-				[[
-				function! g:LightlineFilename()
-					return v:lua.LightlineFilenameInLua()
-				endfunction
-				]],
-				true
+			[[
+			function! g:LightlineFilename()
+			return v:lua.LightlineFilenameInLua()
+			endfunction
+			]],
+			true
 			)
 		end
 	},
@@ -197,6 +197,25 @@ require("lazy").setup({
 				},
 			}
 
+			-- C++ LSP (clangd)
+			lspconfig.clangd.setup {
+				cmd = { "clangd", "--background-index", "--clang-tidy" },
+				filetypes = { "c", "cpp", "objc", "objcpp", "cuda" },
+				root_dir = function(fname)
+					return lspconfig.util.root_pattern(
+					"compile_commands.json",
+					"compile_flags.txt",
+					".git"
+					)(fname) or vim.fn.getcwd()
+				end,
+				init_options = {
+					clangdFileStatus = true,
+					usePlaceholders = true,
+					completeUnimported = true,
+					semanticHighlighting = true,
+				},
+			}
+
 			-- Bash LSP
 			local configs = require 'lspconfig.configs'
 			if not configs.bash_lsp and vim.fn.executable('bash-language-server') == 1 then
@@ -249,7 +268,7 @@ require("lazy").setup({
 					vim.keymap.set('n', '<leader>r', vim.lsp.buf.rename, opts)
 					vim.keymap.set({ 'n', 'v' }, '<leader>a', vim.lsp.buf.code_action, opts)
 					vim.keymap.set('n', 'gr', vim.lsp.buf.references, opts)
-					vim.keymap.set('n', '<leader>f', function()
+					vim.keymap.set('n', '<leader>=', function()
 						vim.lsp.buf.format { async = true }
 					end, opts)
 
