@@ -231,6 +231,26 @@ require("lazy").setup({
 				},
 			}
 
+			-- 启用 LSP 模块
+			local lspconfig = require('lspconfig')
+
+			-- 配置 JSON LSP
+			lspconfig.jsonls.setup {
+				settings = {
+					json = {
+						schemas = {
+							{
+								description = "ESLint Config",
+								fileMatch = { ".eslintrc.json" },
+								url = "https://json.schemastore.org/eslintrc.json"
+							},
+							-- 添加更多自定义 Schema...
+						},
+						validate = { enable = true }
+					}
+				}
+			}
+
 			-- Bash LSP
 			local configs = require 'lspconfig.configs'
 			if not configs.bash_lsp and vim.fn.executable('bash-language-server') == 1 then
