@@ -11,3 +11,4 @@ if status is-interactive
     alias python=python3
     alias log=lnav
 end
+fish_add_path $HOME/.local/bin
