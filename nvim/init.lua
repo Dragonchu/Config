@@ -1,32 +1,5 @@
--- always set leader first!
-vim.keymap.set("n", "<Space>", "<Nop>", { silent = true })
-vim.g.mapleader = " "
--------------------------------------------------------------------------------
---
--- preferences
---
--------------------------------------------------------------------------------
-vim.wo.number = true
-vim.opt.clipboard = "unnamed"
-vim.o.cursorline = true
-vim.api.nvim_set_hl(0, 'CursorLine', { bg = '#3e4451' })
--------------------------------------------------------------------------------
---
--- hotkeys
---
--------------------------------------------------------------------------------
--- quick-open
-vim.keymap.set('', '<C-p>', '<cmd>Files<cr>')
--- quick-save
-vim.keymap.set('n', '<leader>w', '<cmd>w<cr>')
--- open new file adjacent to current file
-vim.keymap.set('n', '<leader>o', ':e <C-R>=expand("%:p:h") . "/" <cr>')
--- make j and k move by visual line, not actual line, when text is soft-wrapped
-vim.keymap.set('n', 'j', 'gj')
-vim.keymap.set('n', 'k', 'gk')
--- easy-motion
-vim.keymap.set('n', '<leader>f', '<Plug>(easymotion-s)', { noremap = true, silent = true })
-
+require("config.keymaps")
+require("config.options")
 -------------------------------------------------------------------------------
 --
 -- Plugins
@@ -50,70 +23,7 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 -- then set up
-require("lazy").setup({
-	-- main color scheme
-	{
-		"wincent/base16-nvim",
-		lazy = false, -- load at start
-		priority = 1000, -- load first
-		config = function()
-			vim.cmd([[colorscheme base16-gruvbox-dark-hard]])
-			vim.o.background = 'dark'
-			-- XXX: hi Normal ctermbg=NONE
-			-- Make comments more prominent -- they are important.
-			local bools = vim.api.nvim_get_hl(0, { name = 'Boolean' })
-			vim.api.nvim_set_hl(0, 'Comment', bools)
-			-- Make it clearly visible which argument we're at.
-			local marked = vim.api.nvim_get_hl(0, { name = 'PMenu' })
-			vim.api.nvim_set_hl(0, 'LspSignatureActiveParameter', { fg = marked.fg, bg = marked.bg, ctermfg = marked.ctermfg, ctermbg = marked.ctermbg, bold = true })
-			-- XXX
-			-- Would be nice to customize the highlighting of warnings and the like to make
-			-- them less glaring. But alas
-			-- https://github.com/nvim-lua/lsp_extensions.nvim/issues/21
-			-- call Base16hi("CocHintSign", g:base16_gui03, "", g:base16_cterm03, "", "", "")
-		end
-	},
-	-- nice bar at the bottom
-	{
-		'itchyny/lightline.vim',
-		lazy = false, -- also load at start since it's UI
-		config = function()
-			-- no need to also show mode in cmd line when we have bar
-			vim.o.showmode = false
-			vim.g.lightline = {
-				active = {
-					left = {
-						{ 'mode', 'paste' },
-						{ 'readonly', 'filename', 'modified' }
-					},
-					right = {
-						{ 'lineinfo' },
-						{ 'percent' },
-						{ 'fileencoding', 'filetype' }
-					},
-				},
-				component_function = {
-					filename = 'LightlineFilename'
-				},
-			}
-			function LightlineFilenameInLua(opts)
-				if vim.fn.expand('%:t') == '' then
-					return '[No Name]'
-				else
-					return vim.fn.getreg('%')
-				end
-			end
-			-- https://github.com/itchyny/lightline.vim/issues/657
-			vim.api.nvim_exec(
-			[[
-			function! g:LightlineFilename()
-			return v:lua.LightlineFilenameInLua()
-			endfunction
-			]],
-			true
-			)
-		end
-	},
+require("lazy").setup("plugins", {
 	-- quick navigation
 	{
 		'ggandor/leap.nvim',
@@ -125,7 +35,7 @@ require("lazy").setup({
 	{
 		'andymass/vim-matchup',
 		config = function()
-			vim.g.matchup_matchparen_offscreen = { method = "popup" }
+		vim.g.matchup_matchparen_offscreen = { method = "popup" }
 		end
 	},
 	-- auto-cd to root of git project
@@ -450,5 +360,3 @@ require("lazy").setup({
 	}
 })
 
--- <leader><leader> toggles between buffers
-vim.keymap.set('n', '<leader><leader>', '<c-^>')
