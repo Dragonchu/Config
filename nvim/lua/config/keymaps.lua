@@ -14,3 +14,18 @@ vim.keymap.set('n', 'k', 'gk')
 vim.keymap.set('n', '<leader><leader>', '<c-^>')
 -- leap
 vim.keymap.set({'n', 'x', 'o'}, 's', '<Plug>(leap)')
+-- ctrlsf
+-- 普通模式映射
+vim.keymap.set('n', '<C-F>f', '<Plug>CtrlSFPrompt')
+vim.keymap.set('n', '<C-F>n', '<Plug>CtrlSFCwordPath') 
+vim.keymap.set('n', '<C-F>p', '<Plug>CtrlSFPwordPath')
+vim.keymap.set('n', '<C-F>o', ':CtrlSFOpen<CR>')
+vim.keymap.set('n', '<C-F>t', ':CtrlSFToggle<CR>')
+
+-- 可视模式映射
+vim.keymap.set('v', '<C-F>f', '<Plug>CtrlSFVwordPath')
+vim.keymap.set('v', '<C-F>F', '<Plug>CtrlSFVwordExec')
+
+-- 插入模式映射
+vim.keymap.set('i', '<C-F>t', '<Esc>:CtrlSFToggle<CR>')
+
