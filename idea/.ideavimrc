@@ -1,22 +1,131 @@
+" 设置 leader 键
 let mapleader = " "
+nnoremap ' `
 
+""" Plugins  --------------------------------
 set surround
 set easymotion
+set anyobject
+" text-object (bundle plugin)
+set vim-paragraph-motion
+set textobj-indent
+"set textobj-entire
+set argtextobj
+" highlight yank (bundle plugin)
+set highlightedyank
+let g:highlightedyank_highlight_duration = "1000"
+let g:highlightedyank_highlight_color = "rgba(57, 197, 187, 155)"
+" surround (bundle plugin)
+" usage: https://github.com/tpope/vim-surround
+set surround
+" exchange (bundle plugin)
+" usage: https://github.com/tommcdo/vim-exchange
+set exchange
+" nerdtree (bundle plugin)
+set NERDTree
+" replace with register (bundle plugin)
+" usage: https://github.com/vim-scripts/ReplaceWithRegister
+set ReplaceWithRegister
+" continuous shift (a formatter should help you)
+xnoremap < <gv
+xnoremap > >gv
 
+" 显示行号
 set number
+
+" 使用系统剪贴板
 set clipboard=unnamed
-nmap <C-p> <Action>(FindInPath)
+
+" buffer (buffer < window < tab)
+nmap <leader>xx <Action>(CloseAllEditorsButActive)
+nmap <leader>xp <Action>(CloseAllUnpinnedEditors)
+
+" menu
+nmap <leader>mm <Action>(MainMenu)
+nmap <leader>ma <Action>(AnalyzeMenu)
+nmap <leader>mb <Action>(BuildMenu)
+nmap <leader>mc <Action>(CodeMenu)
+nmap <leader>mf <Action>(FindMenuGroup)
+nmap <leader>mg <Action>(GoToMenu)
+nmap <leader>ms <Action>(ScopeViewPopupMenu)
+nmap <leader>mt <Action>(EditorTabPopupMenu)
+nmap <leader>mw <Action>(ToolWindowsGroup)
+
+" file
+nmap <leader>of <Action>(OpenFile)
+nmap <leader>yp <Action>(CopyAbsolutePath)
+nmap <leader>rf <Action>(RecentFiles)
+nmap <leader>rl <Action>(RecentLocations)
+nmap <leader>rp <Action>(ManageRecentProjects)
+nmap <leader>sh <Action>(LocalHistory.ShowHistory)
+nmap <leader>sf <Action>(ShowFilePath)
+nmap <leader>si <Action>(SelectIn)
+nmap <leader>p <Action>(FindInPath)
+nmap <leader>rp <Action>(ReplaceInPath)
+nmap <leader>sw <Action>($SearchWeb)
+
+
+
+" hierarchy
+nmap <leader>hc <Action>(CallHierarchy)
+nmap <leader>hm <Action>(MethodHierarchy)
+nmap <leader>ht <Action>(TypeHierarchy)
+
+" collapse
+nmap za <Action>(ExpandCollapseToggleAction)
+
+" goto
+nmap <leader>a <Action>(GotoAction)
+nmap gc <Action>(GotoClass)
+nmap gf <Action>(GotoFile)
+nmap gs <Action>(GotoSymbol)
+nmap gt <Action>(GoToTest)
+nmap gT <Action>(TextSearchAction)
+nmap go <Action>(GotoSuperMethod)
+nmap gd <Action>(GotoDeclaration)
+nmap gD <Action>(GotoTypeDeclaration)
+nmap gr <Action>(ShowUsages)
+nmap gR <Action>(FindUsages)
+nmap gi <Action>(GotoImplementation)
+nmap gI <Action>(QuickImplementations)
+nmap gn <Action>(ShowNavBar)
+nmap gm %
+
+" terminal
+nmap <leader>tt <Action>(ActivateTerminalToolWindow)
+nmap <leader>tc <Action>(Terminal.OpenInTerminal)
+
+" todo
+nmap <leader>to <Action>(ActivateTODOToolWindow)
+
+
+" 我的自定义
+
+" 快速保存
 nmap <leader>w :w<CR>
+nmap <leader>q :q<CR>
+
+" 在缓冲区之间切换
 nmap <leader><leader> <C-^>
+
+nmap <leader>s ysiw
+
+map <leader>f <Action>(SearchEverywhere)
+
 map <leader>d <Action>(Debug)
 map <leader>r <Action>(RenameElement)
-map <leader>b <Action>(ToggleLineBreakpoint)
 map <leader>z <Action>(ToggleDistractionFreeMode)
 map <leader>o <Action>(FileStructurePopup)
+map <leader>= <Action>(ReformatCode)
 
-map <leader>f <Plug>(easymotion-s)
-map <leader>e <Plug>(easymotion-f)
-
+" 使 j 和 k 在软换行时按视觉行移动
 nmap j gj
 nmap k gk
 
+" like leap
+nmap s <Action>(flash.search)
+xmap s <Action>(flash.search)
+
+" tab switch
+map <C-j> <Action>(PreviousTab)
+map <C-k> <Action>(NextTab)
