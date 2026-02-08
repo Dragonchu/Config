@@ -1,0 +1,164 @@
+tap "homebrew/services"
+# Image format providing lossless and lossy compression for web images
+brew "webp"
+# New file format for still image compression
+brew "jpeg-xl"
+# Codec library for encoding and decoding AV1 video streams
+brew "aom"
+# Cryptography and SSL/TLS Toolkit
+brew "openssl@3"
+# Automatic configure script builder
+brew "autoconf"
+# Tool for generating GNU Standards-compliant Makefiles
+brew "automake"
+# Clone of cat(1) with syntax highlighting and Git integration
+brew "bat"
+# Parser generator
+brew "bison"
+# Core application library for C
+brew "glib"
+# Vector graphics library with cross-device output support
+brew "cairo"
+# Cross-platform make
+brew "cmake"
+# Dependency manager for Cocoa projects
+brew "cocoapods"
+# Cryptographic recipes and primitives for Python
+brew "cryptography"
+# Secure runtime for JavaScript and TypeScript
+brew "deno"
+# Simple, fast and user-friendly alternative to find
+brew "fd"
+# Library to load and enumerate PKCS#11 modules
+brew "p11-kit"
+# Validating, recursive, caching DNS resolver
+brew "unbound"
+# OpenType text shaping engine
+brew "harfbuzz"
+# Subtitle renderer for the ASS/SSA subtitle format
+brew "libass"
+# C library SSHv1/SSHv2 client and server protocols
+brew "libssh"
+# Framework for layout and rendering of i18n text
+brew "pango"
+# OCR (Optical Character Recognition) engine
+brew "tesseract"
+# Play, record, convert, and stream audio and video
+brew "ffmpeg"
+# User-friendly command-line shell for UNIX-like operating systems
+brew "fish"
+# Command-line fuzzy finder written in Go
+brew "fzf"
+# GNU compiler collection
+brew "gcc"
+# GitHub command-line tool
+brew "gh"
+# Open source programming language to build simple/reliable/efficient software
+brew "go"
+# Google Testing and Mocking Framework
+brew "googletest"
+# Install and debug iPhone apps from the command-line
+brew "ios-deploy"
+# Provides library functionality for FIDO U2F & FIDO 2.0, including USB
+brew "libfido2"
+# Library to communicate with iOS devices natively
+brew "libimobiledevice"
+# Generic library support script
+brew "libtool"
+# C library for reading, creating, and modifying zip archives
+brew "libzip"
+# Next-gen compiler infrastructure
+brew "llvm"
+# Curses-based tool for viewing and analyzing log files
+brew "lnav"
+# Language Server for the Lua language
+brew "lua-language-server"
+# Deep clean and optimize your Mac
+brew "mole"
+# Ambitious Vim-fork focused on extensibility and agility
+brew "neovim"
+# Open-source, cross-platform JavaScript runtime environment
+brew "node"
+# Optimized BLAS library
+brew "openblas"
+# Package for scientific computing with Python
+brew "numpy"
+# Manage multiple Node.js versions
+brew "nvm"
+# Open Visual Inference And Optimization toolkit for AI inference
+brew "openvino"
+# Highly capable, feature-rich programming language
+brew "perl"
+# Fast, disk space efficient package manager
+brew "pnpm"
+# Python version management
+brew "pyenv"
+# Interpreted, interactive, object-oriented programming language
+brew "python@3.12"
+# Simple and easy-to-use library to learn videogames programming
+brew "raylib"
+# Search tool like grep and The Silver Searcher
+brew "ripgrep"
+# Version control system designed to be a better CVS
+brew "subversion"
+# Code-search similar to ack
+brew "the_silver_searcher"
+# Terminal multiplexer
+brew "tmux"
+# Display directories as trees (with optional color/HTML output)
+brew "tree"
+# Maintained ctags implementation
+brew "universal-ctags"
+# Generate your Xcode project from a spec file and your folder structure
+brew "xcodegen"
+cask "font-hack-nerd-font"
+# System monitor for the menu bar
+cask "stats"
+# Rust-based terminal
+cask "warp"
+vscode "akamud.vscode-theme-onedark"
+vscode "alefragnani.project-manager"
+vscode "andrsdc.base16-themes"
+vscode "asvetliakov.vscode-neovim"
+vscode "bloop.vibe-kanban"
+vscode "catppuccin.catppuccin-vsc-icons"
+vscode "christian-kohler.npm-intellisense"
+vscode "dsznajder.es7-react-js-snippets"
+vscode "expo.vscode-expo-tools"
+vscode "github.codespaces"
+vscode "github.vscode-pull-request-github"
+vscode "golang.go"
+vscode "k--kato.intellij-idea-keybindings"
+vscode "max-ss.cyberpunk"
+vscode "ms-ceintl.vscode-language-pack-zh-hans"
+vscode "ms-python.debugpy"
+vscode "ms-python.python"
+vscode "ms-python.vscode-pylance"
+vscode "ms-python.vscode-python-envs"
+vscode "ms-toolsai.jupyter"
+vscode "ms-toolsai.jupyter-keymap"
+vscode "ms-toolsai.jupyter-renderers"
+vscode "ms-toolsai.vscode-jupyter-cell-tags"
+vscode "ms-toolsai.vscode-jupyter-slideshow"
+vscode "ms-vscode-remote.remote-containers"
+vscode "ms-vscode.cmake-tools"
+vscode "ms-vscode.cpptools"
+vscode "ms-vscode.cpptools-extension-pack"
+vscode "ms-vscode.cpptools-themes"
+vscode "ms-vscode.hexeditor"
+vscode "ms-vscode.live-server"
+vscode "ms-vscode.vscode-speech"
+vscode "naumovs.color-highlight"
+vscode "o4x.base16-tomorrow"
+vscode "redhat.vscode-yaml"
+vscode "rust-lang.rust-analyzer"
+vscode "twxs.cmake"
+vscode "usernamehw.errorlens"
+vscode "vue.volar"
+go "github.com/go-delve/delve/cmd/dlv"
+go "golang.org/x/tools/gopls"
+go "honnef.co/go/tools/cmd/staticcheck"
+cargo "create-tauri-app"
+cargo "proximity-sort"
+cargo "tailspin"
+cargo "tauri-cli"

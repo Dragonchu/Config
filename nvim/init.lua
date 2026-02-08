@@ -21,5 +21,10 @@ vim.opt.rtp:prepend(lazypath)
 -- then set up
 require("lazy").setup("plugins")
 require("config.lsp")
-require("bufferline").setup{}
+if vim.g.vscode then
+  -- VSCode extension
+else
+  -- ordinary Neovim
+  require("bufferline").setup{}
+end
 

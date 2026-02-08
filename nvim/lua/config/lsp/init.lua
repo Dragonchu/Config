@@ -1,3 +1,7 @@
+if vim.g.vscode then
+    -- VSCode extension
+else
+    -- ordinary Neovim
 local lspconfig = require("lspconfig")
 
 -- 获取当前文件所在目录
@@ -68,3 +72,4 @@ vim.api.nvim_create_autocmd('LspAttach', {
 	end,
 })
 
+end

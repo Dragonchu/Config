@@ -1,3 +1,7 @@
+if vim.g.vscode then
+  return {}
+else
+    -- ordinary Neovim
 return {
 	{
     'nvim-lualine/lualine.nvim',
@@ -227,3 +231,4 @@ lualine.setup(config)
     end
 }
 }
+end
