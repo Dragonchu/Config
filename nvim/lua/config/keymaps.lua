@@ -29,3 +29,9 @@ vim.keymap.set('v', '<C-F>F', '<Plug>CtrlSFVwordExec')
 -- 插入模式映射
 vim.keymap.set('i', '<C-F>t', '<Esc>:CtrlSFToggle<CR>')
 
+-- 窗口切换（由 vim-tmux-navigator 插件接管）
+
+-- 滚动
+vim.keymap.set('n', '<leader>j', '<C-e>', { desc = "Scroll down" })
+vim.keymap.set('n', '<leader>k', '<C-y>', { desc = "Scroll up" })
+

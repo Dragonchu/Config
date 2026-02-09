@@ -1,10 +1,14 @@
 return {
-	  {
-    "Alexis12119/nightly.nvim",
+  {
+    "sainnhe/gruvbox-material",
     lazy = false,
     priority = 1000,
     config = function()
-      vim.cmd.colorscheme "nightly"
+      vim.o.background = "dark"
+      vim.g.gruvbox_material_background = "medium"
+      vim.g.gruvbox_material_foreground = "material"
+      vim.g.gruvbox_material_better_performance = 1
+      vim.cmd.colorscheme "gruvbox-material"
     end,
-  }
+  },
 }
